@@ -1,0 +1,11 @@
+# FiveM Server Configuration
+server.cfg
+txData/
+
+# Database and Environment Secrets
+*.sql
+.env
+
+# Dependencies
+resources/[core]/ag_ui/web/node_modules/
+node_modules/

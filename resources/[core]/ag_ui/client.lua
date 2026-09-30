@@ -1,0 +1,17 @@
+-- NUI Message Proxy (from ag_core to React)
+RegisterNetEvent('ag_ui:client:SendNUIMessage', function(message)
+    SendNUIMessage(message)
+end)
+
+-- NUI Callbacks Proxy (from React to ag_core)
+RegisterNUICallback('selectCharacter', function(data, cb)
+    SetNuiFocus(false, false)
+    SendNUIMessage({ action = "closeUI" })
+    TriggerServerEvent('ag_core:server:SelectCharacter', data.citizenid)
+    cb('ok')
+end)
+
+RegisterNUICallback('createCharacter', function(data, cb)
+    TriggerServerEvent('ag_core:server:CreateCharacter', data)
+    cb('ok')
+end)
