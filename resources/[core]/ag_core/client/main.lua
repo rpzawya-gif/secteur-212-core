@@ -49,10 +49,17 @@ RegisterNetEvent('ag_core:client:ShowCharacterSelect', function(characters)
     Wait(1000)
     
     SetNuiFocus(true, true)
-    TriggerEvent('ag_ui:client:SendNUIMessage', {
-        action = "openCharacterSelect",
-        data = characters
-    })
+    
+    if not characters or #characters == 0 then
+        TriggerEvent('ag_ui:client:SendNUIMessage', {
+            action = "openCharacterCreate"
+        })
+    else
+        TriggerEvent('ag_ui:client:SendNUIMessage', {
+            action = "openCharacterSelect",
+            data = characters
+        })
+    end
 end)
 
 

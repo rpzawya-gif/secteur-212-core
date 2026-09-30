@@ -1,6 +1,7 @@
 # FiveM Server Configuration
 server.cfg
 txData/
+cache/
 
 # Database and Environment Secrets
 *.sql
